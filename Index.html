@@ -1,28 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Techaccs</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para você, com amor 💖</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1>🚀 Techaccs</h1>
-    <p>Seu site está no ar pela Vercel!</p>
+  <!-- Canvas do fundo de corações -->
+  <canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">♥</span>
+      <span>TechAccs Love</span>
+    </div>
+
+    <div class="actions">
+      <button id="themeToggle" class="ghost" aria-label="Alternar tema">🌙</button>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Bem-vindo!</h2>
-      <p>Este é um teste inicial de hospedagem com domínio <strong>techaccs.com.br</strong>.</p>
+    <!-- Saudação personalizada -->
+    <section class="card hero" id="home">
+      <div class="hello">
+        <h1>
+          Oi, <span data-name>meu amor</span>! 💖
+        </h1>
+        <p class="subtitle">
+          Este cantinho é todinho seu. Fiz com carinho para te lembrar do quanto você é especial pra mim.
+        </p>
+
+        <form id="nameForm" class="name-form" autocomplete="off">
+          <label for="yourName">Como devo te chamar?</label>
+          <div class="row">
+            <input id="yourName" name="yourName" type="text" placeholder="Ex.: Princesa, Amor, Vida..." />
+            <button class="primary">Salvar</button>
+          </div>
+          <small>Dica: isso personaliza as mensagens. 💌</small>
+        </form>
+
+        <div class="cta-row">
+          <a class="primary big" href="#letter">Ler a cartinha 💌</a>
+          <button id="surpriseBtn" class="accent big">Surpresa! ✨</button>
+        </div>
+      </div>
+      <div class="hero-emoji" aria-hidden="true">💞</div>
     </section>
+
+    <!-- Motivos -->
+    <section class="card" id="reasons">
+      <div class="section-title">
+        <h2>Motivos pelos quais eu te amo</h2>
+        <button id="showReasons" class="ghost">Mostrar ❤️</button>
+      </div>
+
+      <ul class="reasons">
+        <li>Seu sorriso ilumina qualquer dia nublado.</li>
+        <li>Seu abraço é o meu lugar favorito no mundo.</li>
+        <li>Você me inspira a ser melhor todos os dias.</li>
+        <li>Seu jeitinho único faz meu coração dançar.</li>
+        <li>Com você, tudo fica mais leve e mais bonito.</li>
+        <li>Te amo pelo que você é e por tudo que somos juntos.</li>
+      </ul>
+    </section>
+
+    <!-- Cartinha com máquina de escrever -->
+    <section class="card" id="letter">
+      <h2>Cartinha para <span data-name>você</span> ✍️</h2>
+
+      <div class="letter">
+        <div id="letterText" class="typewriter" aria-live="polite"></div>
+        <div class="letter-actions">
+          <button id="startLetter" class="primary">Ler desde o começo</button>
+          <button id="skipLetter" class="ghost">Mostrar tudo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini brincadeira -->
+    <section class="card" id="play">
+      <h2>O quanto você é amada? 💗</h2>
+      <p>Arraste o coração e descubra!</p>
+
+      <div class="meter">
+        <input id="loveMeter" type="range" min="0" max="100" value="70" />
+        <div class="meter-value"><span id="lovePercent">70</span>%</div>
+      </div>
+
+      <p class="meter-msg" id="meterMsg">Muito! (mas na verdade é 100% todos os dias) 🌟</p>
+    </section>
+
+    <!-- Lembranças (imagens de exemplo) -->
+    <section class="card" id="memories">
+      <h2>Nossas lembranças 📸</h2>
+      <p class="hint">Substitua as imagens por fotos de vocês para deixar ainda mais especial.</p>
+
+      <div class="grid">
+        <figure class="reveal">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop" alt="Céu com coração" />
+          <figcaption>Meu coração é seu.</figcaption>
+        </figure>
+        <figure class="reveal">
+          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=800&auto=format&fit=crop" alt="Flores românticas" />
+          <figcaption>Pra enfeitar seus dias.</figcaption>
+        </figure>
+        <figure class="reveal">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="Pôr do sol" />
+          <figcaption>Sempre ao seu lado.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      Feito com 💖 por você — personalize como quiser!  
+      <span class="small">
+        Dica de edição: troque textos, imagens e cores em <code>index.html</code> e <code>styles.css</code>.
+      </span>
+    </footer>
   </main>
 
-  <footer>
-    <p>© 2025 Techaccs - Todos os direitos reservados.</p>
-  </footer>
-  
-  <script src="script.js"></script>
+  <!-- Modal de surpresa -->
+  <dialog id="surpriseModal" class="modal">
+    <div class="modal-card">
+      <button class="close" aria-label="Fechar">✖</button>
+      <h3><span data-name>Amor</span>, você é meu mundo 🌍</h3>
+      <p>
+        Obrigado por existir, por me escolher e por caminhar comigo.  
+        Eu te amo hoje, amanhã e sempre. 💘
+      </p>
+      <button class="accent" id="confettiHearts">Mais corações! 💕</button>
+    </div>
+  </dialog>
 </body>
 </html>
